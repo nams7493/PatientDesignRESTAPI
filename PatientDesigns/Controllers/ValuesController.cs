@@ -16,7 +16,7 @@ namespace PatientDesigns.Controllers
 
         string conn = "Server=tcp:nams7493.database.windows.net,1433;Initial Catalog=nams7493;Persist Security Info=False;User ID=nams7493;Password=Abcdabc2;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
         
-        [Route("PatientDetails/{id}")]
+        [Route("api/PatientDetails/{id}")]
         [HttpGet]
         public Patient GetPatientDetails(int id)
         {
@@ -50,7 +50,7 @@ namespace PatientDesigns.Controllers
             return patient;
         }
 
-        [Route("DoctorDetails/{id}")]
+        [Route("api/DoctorDetails/{id}")]
         [HttpGet]
         public Doctor GetDoctortDetails(int id)
         {
@@ -83,7 +83,7 @@ namespace PatientDesigns.Controllers
         }
 
         [HttpGet]
-        [Route("PharmacistDetails/{id}")]
+        [Route("api/PharmacistDetails/{id}")]
         public Pharmacist GetPharmacistDetails(int id)
         {
             Stopwatch stopwatch = new Stopwatch();
@@ -115,7 +115,7 @@ namespace PatientDesigns.Controllers
         }
 
         [HttpGet]
-        [Route("patientdetails/{patientid}")]
+        [Route("api/patientdetails/{patientid}")]
         public List<PrescriptionDetails> GetPrescriptions(int patientid)
         {
             Stopwatch stopwatch = new Stopwatch();
@@ -148,7 +148,7 @@ namespace PatientDesigns.Controllers
         
         // POST api/values
         [HttpPost]
-        [Route("CreateRequestDoctor")]
+        [Route("api/CreateRequestDoctor")]
         public void DoctorRequestViewData([FromBody] int PatientId, [FromBody] int DoctorId)
         {
             Stopwatch stopwatch = new Stopwatch();
@@ -168,7 +168,7 @@ namespace PatientDesigns.Controllers
         }
 
         [HttpPost]
-        [Route("CreateRequestPharmacist")]
+        [Route("api/CreateRequestPharmacist")]
         public void PharmacistRequestViewData([FromBody] int PatientId, [FromBody] int PharmacistId)
         {
             Stopwatch stopwatch = new Stopwatch();
@@ -188,7 +188,7 @@ namespace PatientDesigns.Controllers
         }
 
         [HttpGet]
-        [Route("PostRequestStatusDoctor/{patientid}/{doctorid}/{success}")]
+        [Route("api/PostRequestStatusDoctor/{patientid}/{doctorid}/{success}")]
         public void PostStatusDoctor(int PatientId,int DoctorId, string success)
         {
             Stopwatch stopwatch = new Stopwatch();
@@ -215,7 +215,7 @@ namespace PatientDesigns.Controllers
         }
 
         [HttpPost]
-        [Route("PostRequestStatusPharmacist/{patientid}/{doctorid}/{success}")]
+        [Route("api/PostRequestStatusPharmacist/{patientid}/{doctorid}/{success}")]
         public void PostStatusPharmacist(int PatientId, int PharmacistId,string success)
         {
             Stopwatch stopwatch = new Stopwatch();
